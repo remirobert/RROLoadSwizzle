@@ -14,7 +14,7 @@
 		BBCC02D3226AA55000A4E7C3 /* NSObject+RROLoadSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCC02CD226AA55000A4E7C3 /* NSObject+RROLoadSwizzle.m */; };
 		BBCC02D4226AA55000A4E7C3 /* RROSwizzlingInfoStore.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCC02CE226AA55000A4E7C3 /* RROSwizzlingInfoStore.m */; };
 		BBCC02D5226AA55000A4E7C3 /* NSObject+RROLoadSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = BBCC02CF226AA55000A4E7C3 /* NSObject+RROLoadSwizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BBCC02D6226AA55000A4E7C3 /* RROSwizzlingInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = BBCC02D0226AA55000A4E7C3 /* RROSwizzlingInfo.h */; };
+		BBCC02D6226AA55000A4E7C3 /* RROSwizzlingInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = BBCC02D0226AA55000A4E7C3 /* RROSwizzlingInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BBCC02DB226AA55C00A4E7C3 /* Counter.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCC02D8226AA55C00A4E7C3 /* Counter.m */; };
 		BBCC02DC226AA55C00A4E7C3 /* SwizzlingInfoStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCC02D9226AA55C00A4E7C3 /* SwizzlingInfoStoreTests.m */; };
 		BBCC02DD226AA55C00A4E7C3 /* NSObject+LoadSwizzleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCC02DA226AA55C00A4E7C3 /* NSObject+LoadSwizzleTests.m */; };

@@ -16,4 +16,5 @@ FOUNDATION_EXPORT const unsigned char RROLoadSwizzleVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <RROLoadSwizzle/PublicHeader.h>
 
-
+#import <RROLoadSwizzle/NSObject+RROLoadSwizzle.h>
+#import <RROLoadSwizzle/RROSwizzlingInfo.h>
