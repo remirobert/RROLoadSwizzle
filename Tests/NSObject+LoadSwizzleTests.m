@@ -105,4 +105,17 @@ static NSInteger customIncrementer(Counter *self, SEL _cmd, NSInteger number) {
     XCTAssertEqual([_counter incrementNumber:10], 11);
 }
 
+- (void)testRevertAllSwizzlingForTheClass {
+    RRO_SWIZZLE_METHOD([Counter class], @selector(incrementNumber:), customIncrementer, &gOriginalInstanceMethodPointer);
+    RRO_SWIZZLE_METHOD([Counter class], @selector(manage), customManage, &gOriginalClassMethodPointer);
+
+    XCTAssertTrue([[Counter manage] isEqualToString:NSStringFromClass([XCTestCase class])]);
+    XCTAssertEqual([_counter incrementNumber:10], 12);
+
+    RRO_REVERT_SWIZZLE_ALL_METHOD([Counter class]);
+
+    XCTAssertTrue([[Counter manage] isEqualToString:NSStringFromClass([Counter class])]);
+    XCTAssertEqual([_counter incrementNumber:10], 11);
+}
+
 @end
