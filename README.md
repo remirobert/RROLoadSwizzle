@@ -22,7 +22,7 @@ void (*gOriginalViewDidLoad)(id, SEL);
     isViewDidLoadCalled = true;
     NSLog(@"viewDidLoad called here");
 
-    //call original @selector(viewDidLoad)
+    //call original @selector(viewDidLoad) if needed
     gOriginalViewDidLoad(nav, _cmd); 
   };
   
