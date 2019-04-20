@@ -16,6 +16,8 @@ NSString * (*gOriginalClassMethodPointer)(id, SEL);
 
 @import XCTest;
 
+@import UIKit;
+
 @interface NSObject_LoadSwizzleTests : XCTestCase
 
 @property (nonatomic, strong) Counter *counter;
@@ -27,6 +29,7 @@ NSString * (*gOriginalClassMethodPointer)(id, SEL);
 - (void)setUp {
     _counter = [[Counter alloc] init];
     gOriginalInstanceMethodPointer = nil;
+    gOriginalClassMethodPointer = nil;
 }
 
 - (void)tearDown {
@@ -34,7 +37,7 @@ NSString * (*gOriginalClassMethodPointer)(id, SEL);
 }
 
 - (void)testSwizzleInstanceMethodWithBlock {
-    __block NSInteger originalValue;
+    __block CGFloat originalValue;
 
     NSInteger (^printBlock)(Counter *, SEL, NSInteger) = ^NSInteger (Counter *counter, SEL _cmd, NSInteger number) {
         originalValue = gOriginalInstanceMethodPointer(counter, _cmd, number);
@@ -44,6 +47,7 @@ NSString * (*gOriginalClassMethodPointer)(id, SEL);
     RRO_SWIZZLE_BLOCK([Counter class], @selector(incrementNumber:), printBlock, &gOriginalInstanceMethodPointer);
 
     XCTAssertEqual([_counter incrementNumber:10], 10);
+    XCTAssertEqual(gOriginalInstanceMethodPointer(_counter, @selector(incrementNumber:), 10), 11);
     XCTAssertEqual(originalValue, 11);
 
     RRO_REVERT_SWIZZLE_METHOD([Counter class], @selector(incrementNumber:));
@@ -54,17 +58,14 @@ NSString * (*gOriginalClassMethodPointer)(id, SEL);
 - (void)testSwizzleClassMethodWithBlock {
     XCTAssertTrue([[Counter manage] isEqualToString:NSStringFromClass([Counter class])]);
 
-    __block NSString * originalValue;
-
     NSString * (^classNameBlock)(Counter *, SEL) = ^NSString * (Counter *counter, SEL _cmd) {
-        originalValue = gOriginalClassMethodPointer(counter, _cmd);
         return NSStringFromClass([XCTestCase class]);
     };
 
     RRO_SWIZZLE_BLOCK([Counter class], @selector(manage), classNameBlock, &gOriginalClassMethodPointer);
 
     XCTAssertTrue([[Counter manage] isEqualToString:NSStringFromClass([XCTestCase class])]);
-    XCTAssertTrue([originalValue isEqualToString:NSStringFromClass([Counter class])]);
+    XCTAssertTrue([gOriginalClassMethodPointer(_counter, @selector(manage)) isEqualToString:NSStringFromClass([Counter class])]);
 
     RRO_REVERT_SWIZZLE_METHOD([Counter class], @selector(manage));
 
@@ -116,6 +117,28 @@ static NSInteger customIncrementer(Counter *self, SEL _cmd, NSInteger number) {
 
     XCTAssertTrue([[Counter manage] isEqualToString:NSStringFromClass([Counter class])]);
     XCTAssertEqual([_counter incrementNumber:10], 11);
+}
+
+- (void)testSetMultipleTimeSwizzlingInfoForClass {
+    NSString * (^classNameBlock1)(Counter *, SEL) = ^NSString * (Counter *counter, SEL _cmd) {
+        return @"block1";
+    };
+
+    RRO_SWIZZLE_BLOCK([Counter class], @selector(manage), classNameBlock1, &gOriginalInstanceMethodPointer);
+
+    XCTAssertTrue([[Counter manage] isEqualToString:@"block1"]);
+
+    NSString * (^classNameBlock2)(Counter *, SEL) = ^NSString * (Counter *counter, SEL _cmd) {
+        return @"block2";
+    };
+
+    RRO_SWIZZLE_BLOCK([Counter class], @selector(manage), classNameBlock2, &gOriginalInstanceMethodPointer);
+
+    XCTAssertTrue([[Counter manage] isEqualToString:@"block2"]);
+
+    RRO_REVERT_SWIZZLE_METHOD([Counter class], @selector(manage));
+
+    XCTAssertTrue([[Counter manage] isEqualToString:NSStringFromClass([Counter class])]);
 }
 
 @end
