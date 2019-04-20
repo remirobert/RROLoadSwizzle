@@ -1,5 +1,7 @@
 # RROLoadSwizzle
 
+Check **Tests** for usage.
+
 ```Objective-c
 
 //A function which is the implementation of original method. 
