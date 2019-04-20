@@ -2,7 +2,7 @@
 
 ![buid status](https://app.bitrise.io/app/14d90a9dfd5ce2e8/status.svg?token=uQY671hjdyKtODwsl18vfA) [![codecov](https://codecov.io/gh/remirobert/RROLoadSwizzle/branch/master/graph/badge.svg)](https://codecov.io/gh/remirobert/RROLoadSwizzle)
 
-Used essentially for testing purpose.
+Used to assist in unit testing.
 Check **Tests** for usage.
 
 ```Objective-c
