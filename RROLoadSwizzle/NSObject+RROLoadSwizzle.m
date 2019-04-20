@@ -37,6 +37,11 @@ static RROSwizzlingInfoStore *swizzleStore;
     const char * _Nullable methodArgumentsTypes = method_getTypeEncoding(originalMethod);
 
     if (!class_addMethod(cls, selector, impl, methodArgumentsTypes)) {
+        RROSwizzlingInfo * _Nullable alreadySwizzlingSetInfo;
+
+        if ((alreadySwizzlingSetInfo = [[self swizzleStore] swizzlingInfosFromClass:[self class] forSelector:selector])) {
+            [self rro_revertSwizzleMethod:selector];
+        }
         *originalPointer = method_setImplementation(originalMethod, impl);
 
         RROSwizzlingInfo *info = [[RROSwizzlingInfo alloc] initWithTargetClass:[self class]
