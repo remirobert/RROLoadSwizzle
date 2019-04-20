@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
     s.homepage = "https://github.com/remirobert/RROLoadSwizzle"
     s.license      = 'MIT'
     s.author       = { 'Remi ROBERT' => 'remirobert33530@gmail.com' }
-    s.source       = { :git => 'https://github.com/remirobert/RROLoadSwizzle', :tag => s.version }
+    s.source       = { :git => 'https://github.com/remirobert/RROLoadSwizzle.git', :tag => s.version }
 
     s.source_files = 'RROLoadSwizzle/**/*.{h,m}'
     s.private_header_files = 'RROLoadSwizzle/RROSwizzlingInfoStore.h'
