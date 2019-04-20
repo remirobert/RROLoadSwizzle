@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BBCC02B3226AA51400A4E7C3 /* RROLoadSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = BBCC02A5226AA51400A4E7C3 /* RROLoadSwizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BBCC02C3226AA53400A4E7C3 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCC02C2226AA53400A4E7C3 /* Tests.m */; };
 		BBCC02C5226AA53400A4E7C3 /* RROLoadSwizzle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCC02A2226AA51400A4E7C3 /* RROLoadSwizzle.framework */; };
 		BBCC02D1226AA55000A4E7C3 /* RROSwizzlingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCC02CB226AA55000A4E7C3 /* RROSwizzlingInfo.m */; };
 		BBCC02D2226AA55000A4E7C3 /* RROSwizzlingInfoStore.h in Headers */ = {isa = PBXBuildFile; fileRef = BBCC02CC226AA55000A4E7C3 /* RROSwizzlingInfoStore.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -36,7 +35,6 @@
 		BBCC02A5226AA51400A4E7C3 /* RROLoadSwizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RROLoadSwizzle.h; sourceTree = "<group>"; };
 		BBCC02A6226AA51400A4E7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBCC02C0226AA53400A4E7C3 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BBCC02C2226AA53400A4E7C3 /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		BBCC02C4226AA53400A4E7C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBCC02CB226AA55000A4E7C3 /* RROSwizzlingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RROSwizzlingInfo.m; sourceTree = "<group>"; };
 		BBCC02CC226AA55000A4E7C3 /* RROSwizzlingInfoStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RROSwizzlingInfoStore.h; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				BBCC02D8226AA55C00A4E7C3 /* Counter.m */,
 				BBCC02DA226AA55C00A4E7C3 /* NSObject+LoadSwizzleTests.m */,
 				BBCC02D9226AA55C00A4E7C3 /* SwizzlingInfoStoreTests.m */,
-				BBCC02C2226AA53400A4E7C3 /* Tests.m */,
 				BBCC02C4226AA53400A4E7C3 /* Info.plist */,
 			);
 			path = Tests;
@@ -237,7 +234,6 @@
 			files = (
 				BBCC02DD226AA55C00A4E7C3 /* NSObject+LoadSwizzleTests.m in Sources */,
 				BBCC02DB226AA55C00A4E7C3 /* Counter.m in Sources */,
-				BBCC02C3226AA53400A4E7C3 /* Tests.m in Sources */,
 				BBCC02DC226AA55C00A4E7C3 /* SwizzlingInfoStoreTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
