@@ -1,5 +1,7 @@
 # RROLoadSwizzle
 
+![buid status](https://app.bitrise.io/app/14d90a9dfd5ce2e8/status.svg?token=uQY671hjdyKtODwsl18vfA)
+
 Check **Tests** for usage.
 
 ```Objective-c
